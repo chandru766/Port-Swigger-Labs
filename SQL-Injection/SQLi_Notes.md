@@ -6,7 +6,7 @@ This document contains detailed notes, extracted workflows, and diagrams based o
 
 ## Lab 01: Product Category Filter
 
-![Lab 01 Diagram](lab1.png)
+![Lab 01 Diagram](assets/lab1.png)
 
 **Objective**: Display all products, including both released and unreleased products.
 **Vulnerability**: SQL Injection (Boolean-based). The application uses a user-controlled `category` parameter directly inside an SQL query without properly sanitizing or parameterizing the input.
@@ -30,7 +30,7 @@ Use a string terminator and an SQL comment (e.g., `' OR 1=1--`) to manipulate th
 
 ## Lab 02: Login Functionality
 
-![Lab 02 Diagram](lab2.png)
+![Lab 02 Diagram](assets/lab2.png)
 
 **Objective**: Bypass authentication to access the administrator account.
 **Vulnerability**: Authentication Bypass via SQLi. Username and password fields are concatenated directly into the authentication query.
@@ -53,7 +53,7 @@ Provide an input like `administrator'--`. The `'` terminates the username string
 
 ## Lab 03 & 04: Determining Number of Columns & Data Types
 
-![Lab 03 & 04 Diagram](lab3.png)
+![Lab 03 & 04 Diagram](assets/lab3.png)
 
 **Objective**: Determine the number of columns returned by the vulnerable query and find which columns are compatible with string data.
 **Vulnerability**: UNION-based SQL Injection.
@@ -80,7 +80,7 @@ graph LR
 
 ## Lab 05: Retrieving Data from Other Tables
 
-![Lab 05 Diagram](lab5.png)
+![Lab 05 Diagram](assets/lab5.png)
 
 **Objective**: Understand how UNION-based SQL injection can expose data from other tables.
 **Vulnerability**: UNION-based SQL Injection.
@@ -107,7 +107,7 @@ Once column count and data types are determined, formulate a payload like:
 
 ## Lab 06: Retrieving Multiple Values Within a Single Column
 
-![Lab 06 Diagram](lab6.png)
+![Lab 06 Diagram](assets/lab6.png)
 
 **Objective**: Retrieve usernames and passwords when only ONE column is available for displaying useful text.
 **Key Technique**: String Concatenation.
@@ -130,8 +130,8 @@ This joins the `username` and `password` with a `~` character, allowing both to 
 
 ## Lab 07 & 08: Database Reconnaissance & Enumeration
 
-![Lab 07 Diagram](lab7.png)
-![Lab 08 Diagram](lab8.png)
+![Lab 07 Diagram](assets/lab7.png)
+![Lab 08 Diagram](assets/lab8.png)
 
 **Objective**: Examine the database version and enumerate database structure (Tables and Columns).
 **Vulnerability**: SQL Injection (Information Schema).
@@ -158,7 +158,7 @@ graph LR
 
 ## Lab 09: Blind SQL Injection (Conditional Responses)
 
-![Lab 09 Diagram](lab9.png)
+![Lab 09 Diagram](assets/lab9.png)
 
 **Objective**: Determine the administrator's password when the application does not directly display database results.
 **Vulnerability**: Blind SQL Injection.
@@ -184,7 +184,7 @@ Since data is not displayed, we rely on application behavior (e.g., whether a "W
 
 ## Lab 10: Conditional Error-Based Blind SQLi
 
-![Lab 10 Diagram](lab10.png)
+![Lab 10 Diagram](assets/lab10.png)
 
 **Objective**: Infer database information through observable error behavior.
 **Vulnerability**: Conditional Error-Based Blind SQLi.
